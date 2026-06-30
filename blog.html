@@ -2439,13 +2439,31 @@
     }
 
   
-    /* --- Robust Mobile Navigation Fix --- */
+    
+    /* --- Robust Mobile Navigation Fix v2 --- */
     @media screen and (max-width: 1024px) {
       nav .nav-links {
         display: none !important;
       }
       nav.open .nav-links {
         display: flex !important;
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+      }
+      nav.open .nav-links li {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      nav.open .nav-links a {
+        display: block !important;
+        padding: 10px 0 !important;
+        color: var(--text) !important;
       }
       .hamburger {
         display: flex !important;
@@ -2456,6 +2474,35 @@
       }
       nav .search-wrap {
         display: none !important;
+      }
+    }
+
+  
+    /* --- Vehicle/Blog Mobile Layout Fixes --- */
+    @media (max-width: 900px) {
+      .media-row {
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
+      .media-thumb,
+      .media-info {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+      }
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .flight-day-gallery .gallery-item {
+        flex: 0 0 calc(50% - 0.75rem) !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .specs-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .flight-day-gallery .gallery-item {
+        flex: 0 0 calc(85% - 1rem) !important;
       }
     }
 
@@ -2547,5 +2594,46 @@
     else videoElement.pause();
   }
 </script>
+
+  <script>
+    // --- Force Mobile Nav Fix ---
+    function forceMobileNav() {
+      if(window.innerWidth <= 1024) {
+        var navLinks = document.querySelector('.nav-links');
+        var hamburger = document.querySelector('.hamburger');
+        var nav = document.getElementById('navbar');
+        var searchWrap = document.querySelector('.search-wrap');
+        var topLang = document.querySelector('.top-right-lang');
+        
+        if(navLinks && (!nav || !nav.classList.contains('open'))) {
+          navLinks.style.setProperty('display', 'none', 'important');
+        }
+        if(hamburger) {
+          hamburger.style.setProperty('display', 'flex', 'important');
+        }
+        if(searchWrap) {
+          searchWrap.style.setProperty('display', 'none', 'important');
+        }
+        if(topLang) {
+          topLang.style.setProperty('display', 'none', 'important');
+        }
+      } else {
+        var navLinks = document.querySelector('.nav-links');
+        var hamburger = document.querySelector('.hamburger');
+        var searchWrap = document.querySelector('.search-wrap');
+        var topLang = document.querySelector('.top-right-lang');
+        
+        if(navLinks) navLinks.style.removeProperty('display');
+        if(hamburger) hamburger.style.removeProperty('display');
+        if(searchWrap) searchWrap.style.removeProperty('display');
+        if(topLang) topLang.style.removeProperty('display');
+      }
+    }
+    window.addEventListener('resize', forceMobileNav);
+    window.addEventListener('load', forceMobileNav);
+    document.addEventListener('DOMContentLoaded', forceMobileNav);
+    forceMobileNav();
+  </script>
 </body>
+
 </html>

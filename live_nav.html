@@ -1,0 +1,41 @@
+<nav id="navbar" role="navigation" aria-label="Ana navigasyon">
+    <a href="#home" class="nav-logo" aria-label="TULPAR-FF Ana Sayfa">
+      <svg width="26" height="26" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40 8 C22 4, 4 22, 6 42 C8 58, 24 68, 34 60 L40 52 L46 60 C56 68, 72 58, 74 42 C76 22, 58 4, 40 8Z"
+          fill="#0088FF" />
+        <circle cx="40" cy="54" r="8" fill="#0088FF" />
+        <path d="M36 68 L40 78 L44 68" fill="#0088FF" opacity=".7" />
+      </svg>
+      TULPAR<span>-FF</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+      <li><a href="#journey" data-tr="Yolculuk" data-en="Journey">Yolculuk</a></li>
+      <li><a href="vehicle.html" data-tr="Araç" data-en="Vehicle">Araç</a></li>
+
+      <li><a href="team.html" data-tr="Takım" data-en="Team">Takım</a></li>
+      <li><a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+
+      <li><a href="contact.html" class="nav-cta" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Dil seçimi">
+        <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')" aria-pressed="true">TR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <div class="search-wrap" role="search">
+        <label for="site-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Site
+          ara</label>
+        <input type="search" id="site-search" placeholder="Ara…" autocomplete="off" oninput="handleSearch(this.value)"
+          onblur="setTimeout(()=>document.getElementById('search-results').classList.remove('active'),200)">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <div id="search-results" role="listbox" aria-label="Arama sonuçları"></div>
+      </div>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
