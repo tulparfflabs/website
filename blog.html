@@ -2429,21 +2429,20 @@
     color: var(--text);
   }
 
+    
     /* --- Responsive Conversion Guide Additions --- */
-    img, video, canvas {
+    img, canvas {
       max-width: 100%;
       height: auto;
     }
     
+    /* Yalnızca ana butonlarda dokunma alanı */
     @media (max-width: 768px) {
-      /* Dokunma Alanları (Tappable Areas) - min 48px */
-      a, button, .btn-primary, .btn-secondary {
+      .btn-primary, .btn-secondary, .nav-links a {
         min-height: 48px;
-      }
-      
-      .nav-links a {
         display: flex;
         align-items: center;
+        justify-content: center;
       }
     }
 
