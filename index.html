@@ -1500,6 +1500,27 @@
       height: auto;
     }
 
+  
+    /* --- Robust Mobile Navigation Fix --- */
+    @media screen and (max-width: 1024px) {
+      nav .nav-links {
+        display: none !important;
+      }
+      nav.open .nav-links {
+        display: flex !important;
+      }
+      .hamburger {
+        display: flex !important;
+      }
+      /* Hide the redundant floating lang button on mobile since we have one in nav */
+      .top-right-lang {
+        display: none !important;
+      }
+      nav .search-wrap {
+        display: none !important;
+      }
+    }
+
   </style>
   <link rel="icon" type="image/png" href="images/logo.png">
 </head>

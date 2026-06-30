@@ -10371,6 +10371,27 @@
   
     
     
+  
+    /* --- Robust Mobile Navigation Fix --- */
+    @media screen and (max-width: 1024px) {
+      nav .nav-links {
+        display: none !important;
+      }
+      nav.open .nav-links {
+        display: flex !important;
+      }
+      .hamburger {
+        display: flex !important;
+      }
+      /* Hide the redundant floating lang button on mobile since we have one in nav */
+      .top-right-lang {
+        display: none !important;
+      }
+      nav .search-wrap {
+        display: none !important;
+      }
+    }
+
   </style>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
@@ -10662,6 +10683,27 @@
       .nav-links a {
         display: flex;
         align-items: center;
+      }
+    }
+
+  
+    /* --- Robust Mobile Navigation Fix --- */
+    @media screen and (max-width: 1024px) {
+      nav .nav-links {
+        display: none !important;
+      }
+      nav.open .nav-links {
+        display: flex !important;
+      }
+      .hamburger {
+        display: flex !important;
+      }
+      /* Hide the redundant floating lang button on mobile since we have one in nav */
+      .top-right-lang {
+        display: none !important;
+      }
+      nav .search-wrap {
+        display: none !important;
       }
     }
 
