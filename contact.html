@@ -2323,7 +2323,26 @@
     #modal-title { font-size: 1.6rem; }
   }
 
-</style>
+
+    /* --- Responsive Conversion Guide Additions --- */
+    img, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @media (max-width: 768px) {
+      /* Dokunma Alanları (Tappable Areas) - min 48px */
+      a, button, .btn-primary, .btn-secondary {
+        min-height: 48px;
+      }
+      
+      .nav-links a {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+  </style>
   
 
 </head>

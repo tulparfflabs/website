@@ -10368,6 +10368,25 @@
       font-weight: 600;
       letter-spacing: 0.05em;
     }
+  
+    /* --- Responsive Conversion Guide Additions --- */
+    img, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @media (max-width: 768px) {
+      /* Dokunma Alanları (Tappable Areas) - min 48px */
+      a, button, .btn-primary, .btn-secondary {
+        min-height: 48px;
+      }
+      
+      .nav-links a {
+        display: flex;
+        align-items: center;
+      }
+    }
+
   </style>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
@@ -10612,7 +10631,7 @@
                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </div>
 
-            <div class="gallery-item" onclick="openLightbox('images/nahitdr.jpg')"
+            <div class="gallery-item" onclick="openLightbox('images/nahitdr.JPG')"
               style="flex: 0 0 calc(33.333% - 1rem); scroll-snap-align: start; cursor: pointer; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; position: relative; background: var(--surface2);">
               <img src="images/nahitdr.JPG" alt="nahitdr"
                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
@@ -10620,7 +10639,7 @@
                 onerror="this.style.display='none'; this.parentElement.innerHTML='nahitdr.jpg Eklenecek'">
             </div>
 
-            <div class="gallery-item" onclick="openLightbox('images/teamdr.jpg')"
+            <div class="gallery-item" onclick="openLightbox('images/teamdr.JPG')"
               style="flex: 0 0 calc(33.333% - 1rem); scroll-snap-align: start; cursor: pointer; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; position: relative; background: var(--surface2);">
               <img src="images/teamdr.JPG" alt="teamdr"
                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
@@ -10643,7 +10662,26 @@
               background: var(--accent);
               border-radius: 10px;
             }
-          </style>
+          
+    /* --- Responsive Conversion Guide Additions --- */
+    img, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @media (max-width: 768px) {
+      /* Dokunma Alanları (Tappable Areas) - min 48px */
+      a, button, .btn-primary, .btn-secondary {
+        min-height: 48px;
+      }
+      
+      .nav-links a {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+  </style>
         </div>
 
       </div>
