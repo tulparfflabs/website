@@ -12,7 +12,9 @@ new_forceMobileNav = """function forceMobileNav() {
       var searchWrap = document.querySelector('.search-wrap');
       var topLang = document.querySelector('.top-right-lang');
 
-      if (window.innerWidth <= 1200) {
+      var isMobile = window.innerWidth <= 1200 || navigator.userAgent.match(/Mobi|Android|iPhone|iPad/i);
+
+      if (isMobile) {
         if (hamburger) {
           hamburger.style.setProperty('display', 'flex', 'important');
         }
@@ -102,7 +104,6 @@ for f in files:
     with open(f, 'r', encoding='utf-8') as file:
         content = file.read()
     
-    # Replace the whole function
     content = re.sub(old_logic_pattern, new_forceMobileNav, content)
     
     with open(f, 'w', encoding='utf-8') as file:

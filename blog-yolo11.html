@@ -2663,7 +2663,9 @@
       var searchWrap = document.querySelector('.search-wrap');
       var topLang = document.querySelector('.top-right-lang');
 
-      if (window.innerWidth <= 1200) {
+      var isMobile = window.innerWidth <= 1200 || navigator.userAgent.match(/Mobi|Android|iPhone|iPad/i);
+
+      if (isMobile) {
         if (hamburger) {
           hamburger.style.setProperty('display', 'flex', 'important');
         }
