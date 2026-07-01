@@ -10667,11 +10667,18 @@
   
     /* Masaüstünü etkilemeyecek, sadece 1200px altındaki ekranlarda çalışacak kodlar (Çözüm 2) */
     @media screen and (max-width: 1200px) {
+        nav, #navbar {
+            height: auto !important;
+            overflow: visible !important;
+            padding-bottom: 10px !important;
+            padding-top: 10px !important;
+        }
         .nav-links {
             display: flex !important;
             flex-wrap: wrap !important;
             justify-content: center !important;
-            row-gap: 10px;
+            row-gap: 10px !important;
+            gap: 10px !important;
         }
         .hamburger {
             display: none !important;
