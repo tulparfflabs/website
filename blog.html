@@ -2441,7 +2441,7 @@
   
     
     /* --- Robust Mobile Navigation Fix v2 --- */
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1200px) {
       nav .nav-links {
         display: none !important;
       }
@@ -2542,26 +2542,44 @@
       color: #DB1A1A !important;
     }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1200px) {
+      nav.open .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        max-height: calc(100vh - 60px) !important;
+        box-sizing: border-box !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+      
+      nav.open .nav-links li {
+        width: 100% !important;
+        display: block !important;
+        text-align: center !important;
+      }
+
       nav.open .nav-links .nav-cta {
         background: #DB1A1A !important;
         color: #FFF !important;
         margin-top: 15px !important;
-        width: max-content !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         display: block !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
       }
+      
       nav.open .nav-links .nav-cta:hover {
         background: transparent !important;
         color: #DB1A1A !important;
       }
-      nav.open .nav-links {
-        overflow-y: auto !important;
-        max-height: calc(100vh - 60px) !important;
-      }
     }
-
   </style>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
@@ -2654,7 +2672,7 @@
   <script>
     // --- Force Mobile Nav Fix ---
     function forceMobileNav() {
-      if(window.innerWidth <= 1024) {
+      if(window.innerWidth <= 1200) {
         var navLinks = document.querySelector('.nav-links');
         var hamburger = document.querySelector('.hamburger');
         var nav = document.getElementById('navbar');
