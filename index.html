@@ -1539,6 +1539,9 @@
 
     /* --- Robust Mobile Navigation Fix v2 --- */
     @media screen and (max-width: 1200px) {
+        .nav-right {
+            margin-right: 60px !important;
+        }
       nav .nav-links {
         display: none !important;
       }
@@ -1649,6 +1652,9 @@
     }
 
     @media screen and (max-width: 1200px) {
+        .nav-right {
+            margin-right: 60px !important;
+        }
       nav.open .nav-links {
         display: flex !important;
         flex-direction: column !important;
@@ -1693,6 +1699,10 @@
     /* --- 1. MASAÜSTÜ İÇİN (Hamburger ikonunu gizle) --- */
     .hamburger-menu {
         display: none;
+        background: #f0f0f0;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
         cursor: pointer;
         flex-direction: column;
         gap: 5px;
@@ -1702,7 +1712,7 @@
     .hamburger-menu span {
         width: 30px;
         height: 3px;
-        background-color: #fff; /* Sitenin üst kısmı koyuysa #fff, açıksa #000 */
+        background-color: #333; /* Sitenin üst kısmı koyuysa #fff, açıksa #000 */
         border-radius: 5px;
         transition: all 0.3s;
     }
@@ -1711,6 +1721,9 @@
 
     /* --- 2. MOBİL İÇİN SİHİRLİ DOKUNUŞ --- */
     @media screen and (max-width: 1200px) {
+        .nav-right {
+            margin-right: 60px !important;
+        }
         .hamburger-menu {
             display: flex !important;
             position: absolute !important;
@@ -1843,7 +1856,7 @@
     </a>
 
     
-    <div class="hamburger-menu" id="hamburger">
+    <div class="hamburger-menu" id="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('aktif')">
         <span></span>
         <span></span>
         <span></span>
