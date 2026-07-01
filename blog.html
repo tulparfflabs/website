@@ -2679,8 +2679,12 @@
         var searchWrap = document.querySelector('.search-wrap');
         var topLang = document.querySelector('.top-right-lang');
         
-        if(navLinks && (!nav || !nav.classList.contains('open'))) {
-          navLinks.style.setProperty('display', 'none', 'important');
+        if (navLinks) {
+          if (!nav || !nav.classList.contains('open')) {
+            navLinks.style.setProperty('display', 'none', 'important');
+          } else {
+            navLinks.style.removeProperty('display');
+          }
         }
         if(hamburger) {
           hamburger.style.setProperty('display', 'flex', 'important');
