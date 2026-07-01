@@ -1707,10 +1707,7 @@
         transition: all 0.3s;
     }
     
-    nav {
-       height: auto !important;
-       overflow: visible !important;
-    }
+    
 
     /* --- 2. MOBİL İÇİN SİHİRLİ DOKUNUŞ --- */
     @media screen and (max-width: 1200px) {
@@ -2395,19 +2392,8 @@
     }
 
     
-      if (btn) {
-        btn.setAttribute('aria-expanded', isOpen);
-      }
-      if (typeof forceMobileNav === 'function') {
-        forceMobileNav();
-      }
-    }
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.getElementById('navbar').classList.remove('open');
-        document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
-      });
-    });
+
+
 
     const navLinks = document.querySelectorAll('.nav-links a');
     const sectionLinksObserver = new IntersectionObserver(entries => {
