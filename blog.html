@@ -2506,6 +2506,62 @@
       }
     }
 
+  
+    /* --- ULTIMATE CONTACT BUTTON & NAV FIX --- */
+    .nav-links a:not(.nav-cta) {
+      background: transparent !important;
+      border: none !important;
+      color: var(--text) !important;
+      padding: 6px 14px !important;
+      font-weight: 700 !important;
+    }
+    
+    .nav-links a:not(.nav-cta):hover {
+      color: var(--accent2) !important;
+      background: transparent !important;
+    }
+
+    .nav-cta {
+      background: #DB1A1A !important;
+      color: #FFF !important;
+      border: 2px solid #DB1A1A !important;
+      border-radius: 6px !important;
+      padding: 6px 16px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 4px 15px rgba(219, 26, 26, 0.3) !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      letter-spacing: 0.05em !important;
+      font-size: 0.875rem !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .nav-cta:hover {
+      background: transparent !important;
+      color: #DB1A1A !important;
+    }
+
+    @media screen and (max-width: 1024px) {
+      nav.open .nav-links .nav-cta {
+        background: #DB1A1A !important;
+        color: #FFF !important;
+        margin-top: 15px !important;
+        width: max-content !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+      }
+      nav.open .nav-links .nav-cta:hover {
+        background: transparent !important;
+        color: #DB1A1A !important;
+      }
+      nav.open .nav-links {
+        overflow-y: auto !important;
+        max-height: calc(100vh - 60px) !important;
+      }
+    }
+
   </style>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
