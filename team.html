@@ -10575,137 +10575,99 @@
     
     
     
-    /* --- UNIFIED MOBILE NAVIGATION --- */
-    .hamburger {
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-      z-index: 1001;
-      display: none; /* By default hidden on desktop */
-      background: none;
-      border: none;
-      padding: 0;
-    }
     
-    .hamburger span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-      transform-origin: left center;
+    /* --- SADECE MOBİL MENÜ TASARIMI (Masaüstünü Etkilemez) --- */
+    .hamburger {
+      display: none; /* Masaüstünde ikonu gizle */
+      cursor: pointer;
     }
 
-    /* DESKTOP EXPLICIT FIX */
-    @media screen and (min-width: 1201px) {
-      .hamburger {
+    @media screen and (max-width: 992px) {
+      /* Masaüstü linklerini ve sağ tarafı mobilde gizle */
+      .nav-right, .top-right-lang, #nav-links, .search-wrap, .lang-switcher {
         display: none !important;
-      }
-    }
-
-    /* MOBILE NAVIGATION */
-    @media screen and (max-width: 1200px) {
-      nav {
-        padding: 0 1rem !important;
       }
       
-      nav .nav-logo {
-        flex-shrink: 0 !important;
-        position: relative;
-        z-index: 1002;
-      }
-
-      nav .nav-links,
-      nav .search-wrap,
-      nav .lang-switcher,
-      .top-right-lang {
-        display: none !important;
-      }
-
+      /* Üç çizgiyi (Hamburger) göster */
       .hamburger {
         display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        z-index: 1001;
+        background: transparent;
+        border: none;
         position: absolute;
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1002;
-      }
-
-      nav.open .nav-links {
-        display: flex !important;
-        flex-direction: column !important;
-        position: fixed !important;
-        top: 60px !important; /* height of nav */
-        left: 0 !important;
-        right: 0 !important;
-        background: rgba(255, 255, 255, 0.98) !important;
-        padding: 20px 0 !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-        gap: 15px !important;
-        border-bottom: 1px solid var(--border);
-        z-index: 1000;
-        animation: fadeIn 0.3s ease forwards;
-        clip-path: none;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      nav.open .nav-links li {
-        width: 100% !important;
-        text-align: center !important;
-      }
-
-      nav.open .nav-links a {
-        display: inline-block !important;
-        padding: 12px 20px !important;
-        color: var(--text) !important;
-        background: transparent !important;
-        border: none !important;
-        font-size: 1.1rem !important;
-        width: 100%;
       }
       
-      nav.open .nav-links .nav-cta {
-          margin: 0 auto !important;
-          width: 80% !important;
-          background: #DB1A1A !important;
-          color: #FFF !important;
-          border-radius: 6px !important;
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--text);
+        border-radius: 3px;
+        transition: all 0.3s ease;
       }
 
-      /* Animated X */
-      nav.open .hamburger span:nth-child(1) {
-        transform: rotate(45deg);
-        width: 24px;
+      /* Menü açıldığında uygulanacak tasarım */
+      #nav-links.active {
+        display: flex !important;
+        flex-direction: column !important;
+        position: absolute;
+        top: 60px; /* Navbar'ın tam altından başlar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+        margin: 0;
       }
-      nav.open .hamburger span:nth-child(2) {
+
+      #nav-links.active li {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      #nav-links.active a {
+        display: inline-block;
+        font-size: 1.2rem;
+        color: var(--text) !important;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: none !important;
+        background: transparent !important;
+      }
+
+      /* Mobil menüdeki iletişim butonu (Kırmızı) */
+      #nav-links.active a.nav-cta {
+        background-color: var(--accent2) !important;
+        color: #FFF !important;
+        border-radius: 6px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+      }
+
+      /* Menü Açıkken Çarpı (X) Animasyonu */
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(10.5px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
         opacity: 0;
       }
-      nav.open .hamburger span:nth-child(3) {
-        transform: rotate(-45deg);
-        width: 24px;
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-10.5px) rotate(-45deg);
       }
     }
 
-  
-    /* FALLBACK MOBILE OVERRIDE */
-    @media screen and (max-width: 1200px) {
-      ul.nav-links, .search-wrap, .lang-switcher, .top-right-lang { display: none !important; }
-      div.hamburger { display: flex !important; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 9999; }
-      nav.open ul.nav-links { display: flex !important; flex-direction: column !important; position: fixed !important; top: 60px !important; left: 0 !important; right: 0 !important; background: rgba(255, 255, 255, 0.98) !important; padding: 20px 0 !important; border-bottom: 1px solid rgba(0,0,0,0.1); z-index: 1000; animation: fadeIn 0.3s ease forwards; clip-path: none; }
-      nav.open ul.nav-links li { width: 100% !important; text-align: center !important; }
-      nav.open ul.nav-links a { display: inline-block !important; width: 100% !important; padding: 12px 20px !important; color: #0F172A !important; font-size: 1.1rem !important; }
-    }
-    
   </style>
-  <link rel="stylesheet" href="mobile-fix.css">
-</head>
+  </head>
 
 <body>
   <video autoplay loop muted playsinline id="bg-video">
@@ -10729,12 +10691,12 @@
     </a>
 
     
-    <div class="hamburger" id="hamburger" onclick="document.getElementById('navbar').classList.toggle('open')">
+    <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <ul class="nav-links" role="list">
+    <ul class="nav-links" id="nav-links" role="list">
       <li><a href="index.html#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
       <li><a href="index.html#journey" data-tr="Yolculuk" data-en="Journey">Yolculuk</a></li>
       <li><a href="vehicle.html" data-tr="Araç" data-en="Vehicle">Araç</a></li>
@@ -11111,24 +11073,21 @@
   <!-- MOBILE NAV FIX JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var hamburger = document.querySelector('.hamburger');
-      var navbar = document.getElementById('navbar');
-      if(hamburger && navbar) {
-        // Remove old onclick attribute to prevent conflicts
-        hamburger.removeAttribute('onclick');
-        
-        // Add robust event listener
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      if(hamburger && navLinks) {
         hamburger.addEventListener('click', function(e) {
           e.preventDefault();
-          e.stopPropagation();
-          navbar.classList.toggle('open');
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
         });
         
-        // Close menu when a link is clicked
-        var navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(function(link) {
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(function(link) {
           link.addEventListener('click', function() {
-            navbar.classList.remove('open');
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
           });
         });
       }
