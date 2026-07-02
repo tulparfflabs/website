@@ -61,7 +61,7 @@
   .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--accent); color: var(--text); padding: 8px 16px; border-radius: 6px; font-weight: 600; z-index: 9999; transition: top .2s; }
   .skip-link:focus { top: 1rem; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,4vw,3rem); height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 19999 !important; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,4vw,3rem); height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .nav-logo { font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   .nav-logo span { color: var(--accent2); } 
   .nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
@@ -2534,7 +2534,7 @@
       cursor: pointer;
     }
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1200px) {
       /* Masaüstü linklerini ve sağ tarafı mobilde gizle */
       .nav-right, .top-right-lang, #nav-links, .search-wrap, .lang-switcher {
         display: none !important;
@@ -2547,7 +2547,7 @@
         justify-content: space-around;
         width: 30px;
         height: 24px;
-        z-index: 1001;
+        z-index: 20000 !important;
         background: transparent;
         border: none;
         position: absolute;
@@ -2560,7 +2560,7 @@
         display: block;
         width: 100%;
         height: 3px;
-        background-color: var(--text);
+        background-color: #0F172A !important;
         border-radius: 3px;
         transition: all 0.3s ease;
       }
@@ -2577,7 +2577,7 @@
         backdrop-filter: blur(10px);
         padding: 20px 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        z-index: 1000;
+        z-index: 19999 !important;
         margin: 0;
       }
 
