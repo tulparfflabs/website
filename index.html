@@ -1686,6 +1686,7 @@
     
   </style>
   <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="mobile-fix.css">
 </head>
 
 <body>
@@ -2378,6 +2379,33 @@
     </script>
 
 
+
+  <!-- MOBILE NAV FIX JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      var navbar = document.getElementById('navbar');
+      if(hamburger && navbar) {
+        // Remove old onclick attribute to prevent conflicts
+        hamburger.removeAttribute('onclick');
+        
+        // Add robust event listener
+        hamburger.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navbar.classList.toggle('open');
+        });
+        
+        // Close menu when a link is clicked
+        var navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            navbar.classList.remove('open');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 
 
